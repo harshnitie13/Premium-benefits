@@ -1,1 +1,165 @@
-# Premium-benefits
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Benefits Wireframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top for better scrolling */
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px; /* Constrain width for mobile-first feel */
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Ensure rounded corners clip content */
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out; /* Smooth slide animation */
+        }
+        .accordion-content.active {
+            max-height: 500px; /* Arbitrary large value to allow content to expand */
+            transition: max-height 0.5s ease-in;
+        }
+        .rotated {
+            transform: rotate(180deg);
+        }
+        .transition-transform {
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center py-3 px-4 text-sm font-semibold rounded-t-2xl">
+            <i class="fas fa-star mr-2"></i> Limited Time Offer: Valid till 11th April!
+        </div>
+
+        <div class="p-6 border-b border-gray-100">
+            <div class="flex justify-center space-x-2 mb-4">
+                <button class="px-4 py-2 text-sm font-medium rounded-full bg-blue-600 text-white shadow-md">Premium</button>
+                <button class="px-4 py-2 text-sm font-medium rounded-full bg-gray-200 text-gray-700">Assisted</button>
+            </div>
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">DIAMOND PLUS 6 MONTHS</h2>
+                <p class="text-gray-500 text-sm line-through">₹ 8,199</p>
+                <p class="text-blue-600 text-4xl font-extrabold mb-1">₹ 3,280</p>
+                <p class="text-gray-600 text-sm">Just ₹ 547/month</p>
+            </div>
+        </div>
+
+        <div class="p-6 border-b border-gray-100">
+            <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Your Top 3 Game-Changers</h3>
+            <div class="space-y-4">
+                <div class="flex items-center bg-blue-50 p-4 rounded-xl shadow-sm">
+                    <div class="flex-shrink-0 w-10 h-10 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-phone-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Direct Connect to Your Matches</p>
+                        <p class="text-gray-600 text-sm">Unlock direct access to your matches' contact details. Connect when it feels right, no waiting.</p>
+                    </div>
+                </div>
+                <div class="flex items-center bg-green-50 p-4 rounded-xl shadow-sm">
+                    <div class="flex-shrink-0 w-10 h-10 bg-green-200 text-green-700 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-comments text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Unlimited Conversations, Endless Possibilities</p>
+                        <p class="text-gray-600 text-sm">Chat as much as you want, without any limits. Explore every connection, keep the conversation flowing.</p>
+                    </div>
+                </div>
+                <div class="flex items-center bg-yellow-50 p-4 rounded-xl shadow-sm">
+                    <div class="flex-shrink-0 w-10 h-10 bg-yellow-200 text-yellow-700 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-star text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Shine Bright, Be Seen First</p>
+                        <p class="text-gray-600 text-sm">Get noticed instantly with a highlighted profile. Stand out from the crowd and attract the right attention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6">
+            <button id="toggleAllBenefits" class="w-full flex items-center justify-center text-blue-600 font-semibold text-lg py-3 rounded-xl hover:bg-blue-50 transition duration-200">
+                <i class="fas fa-chevron-down mr-3 transition-transform" id="toggleIcon"></i> Discover More Benefits
+            </button>
+
+            <div id="allBenefitsContainer" class="accordion-content">
+                <div class="mt-6 bg-gray-50 p-4 rounded-xl shadow-sm">
+                    <h4 class="font-bold text-gray-800 text-lg mb-3 flex items-center">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i> Insights & Discovery
+                    </h4>
+                    <ul class="space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-center"><i class="fas fa-eye text-gray-400 mr-2"></i> See Who's Curious About You</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-gray-400 mr-2"></i> Your Accepted Connections</li>
+                        <li class="flex items-center"><i class="fas fa-images text-gray-400 mr-2"></i> Full Photo Story</li>
+                        <li class="flex items-center"><i class="fas fa-info-circle text-gray-400 mr-2"></i> Beyond the Basics (Full Profile Details)</li>
+                        <li class="flex items-center"><i class="fas fa-history text-gray-400 mr-2"></i> Your Contact View History</li>
+                        <li class="flex items-center"><i class="fas fa-galaxy text-gray-400 mr-2"></i> Cosmic Connections (Astro Details)</li>
+                        <li class="flex items-center"><i class="fas fa-building text-gray-400 mr-2"></i> Professional & Academic Journey</li>
+                    </ul>
+                </div>
+
+                <div class="mt-4 bg-gray-50 p-4 rounded-xl shadow-sm">
+                    <h4 class="font-bold text-gray-800 text-lg mb-3 flex items-center">
+                        <i class="fas fa-handshake text-green-500 mr-2"></i> Connect & Engage
+                    </h4>
+                    <ul class="space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-center"><i class="fas fa-user-plus text-gray-400 mr-2"></i> Fresh Faces, New Beginnings</li>
+                        <li class="flex items-center"><i class="fas fa-share-alt text-gray-400 mr-2"></i> Expand Your Reach (More Connections)</li>
+                        <li class="flex items-center"><i class="fas fa-phone text-gray-400 mr-2"></i> Direct Phone Access</li>
+                        <li class="flex items-center"><i class="fas fa-filter text-gray-400 mr-2"></i> Tailored Connections (Advanced Contact Filters)</li>
+                        <li class="flex items-center"><i class="fas fa-video text-gray-400 mr-2"></i> Face-to-Face Moments (Video Calls)</li>
+                        <li class="flex items-center"><i class="fas fa-envelope-open-text text-gray-400 mr-2"></i> Open for Connection (Let Matches Contact You)</li>
+                    </ul>
+                </div>
+
+                <div class="mt-4 bg-gray-50 p-4 rounded-xl shadow-sm">
+                    <h4 class="font-bold text-gray-800 text-lg mb-3 flex items-center">
+                        <i class="fas fa-gem text-purple-500 mr-2"></i> Exclusive Privileges
+                    </h4>
+                    <ul class="space-y-2 text-gray-700 text-sm">
+                        <li class="flex items-center"><i class="fas fa-bullseye text-gray-400 mr-2"></i> Spotlight on You (Profile Boost)</li>
+                        <li class="flex items-center"><i class="fas fa-ticket-alt text-gray-400 mr-2"></i> VIP Event Access (Live Event Passes)</li>
+                        <li class="flex items-center"><i class="fas fa-search-plus text-gray-400 mr-2"></i> Precision Search (Enhanced Filters)</li>
+                        <li class="flex items-center"><i class="fas fa-bell text-gray-400 mr-2"></i> Personalized Reminders (Smart Notifications)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-6 pt-0">
+            <button class="w-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold py-4 rounded-xl shadow-lg hover:from-blue-600 hover:to-blue-800 transition duration-300">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleAllBenefits');
+            const allBenefitsContainer = document.getElementById('allBenefitsContainer');
+            const toggleIcon = document.getElementById('toggleIcon');
+
+            toggleButton.addEventListener('click', function() {
+                allBenefitsContainer.classList.toggle('active');
+                toggleIcon.classList.toggle('rotated');
+            });
+        });
+    </script>
+</body>
+</html>
